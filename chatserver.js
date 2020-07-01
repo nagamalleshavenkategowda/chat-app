@@ -26,6 +26,14 @@
 
 "use strict";
 
+// const express = require('express');
+const PORT = process.env.PORT || 3000;
+// const INDEX = '/index.html';
+// const server = express()
+//   .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
+//   .listen(PORT, () => console.log(`Listening on ${PORT}`));
+
+
 var http = require('http');
 var https = require('https');
 var fs = require('fs');
@@ -198,9 +206,16 @@ function handleWebRequest(request, response) {
 // Spin up the HTTPS server on the port assigned to this sample.
 // This will be turned into a WebSocket port very shortly.
 
-webServer.listen(6503, function() {
-  log("Server is listening on port 6503");
+webServer.listen(PORT, function() {
+  log(`Server is listening on port ${PORT}`);
 });
+
+// webServer.listen(6503, function() {
+//   log("Server is listening on port 6503");
+// });
+
+
+
 
 // Create the WebSocket server by converting the HTTPS server into one.
 
